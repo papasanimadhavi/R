@@ -1,0 +1,11 @@
+#Geometric mean
+cat("enter vector")
+c <- scan()
+l <- length(c)
+pod <- 1
+for(i in c){
+  pod <- pod*i
+}
+k <- pod**(1/l)
+cat("geometric mean of given data is:",k)
+exp(mean(log(c)))
