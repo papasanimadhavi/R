@@ -1,0 +1,23 @@
+#Mode
+cat("enter the vector")
+c <- scan()
+v <- vector()
+l <- length(c)
+for(i in 1:(l-1)){
+  v[i] <- -1
+  for(j in (i+1):l){
+    if(c[i]==c[j]){
+      v[i] <- v[i]+1
+    }
+  }
+}
+max <- v[1]
+pos <- 1
+for(i in 2:(l-1)){
+  if(max<v[i]){
+    max=v[i]
+    pos=i
+  }
+}
+
+print(c[i])
