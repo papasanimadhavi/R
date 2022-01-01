@@ -1,0 +1,15 @@
+#Standard deviation.
+cat("enter vector")
+c <- scan()
+l <- length(c)
+s <- 0
+for(i in c){
+  s <- s+i
+}
+Mean <- s/l
+k <- 0
+for(i in c){
+  k <- k+(i-Mean)**2
+}
+cat("Standard deviation is:",(k/l)**(1/2))
+    
