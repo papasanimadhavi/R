@@ -1,0 +1,17 @@
+#Mean of the given data.
+cat("enter vector")
+c <- scan()
+cat("The entered vectro is:")
+cat(c)
+Sum <- 0
+count <- 0
+for (i in c){
+  Sum=Sum+i
+  count=count+1
+}  
+Mean <- Sum/count
+cat("Mean of entered vector is",Mean)
+
+
+
+
