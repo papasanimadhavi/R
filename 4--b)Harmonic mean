@@ -1,0 +1,12 @@
+#Harmonic mean mean
+cat("enter vector")
+c <- scan()
+l <- length(c)
+pod <- 0
+for(i in c){
+  pod <- pod+(1/i)
+}
+hm <- l/pod
+cat("harmonic mean is:",hm)
+HM <- 1/mean(1/c)
+print(HM)
