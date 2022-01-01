@@ -1,0 +1,14 @@
+#Range of given vector.
+c <- scan()
+for (i in 1:(length(c)-1)){
+  for (j in (i+1):length(c)){
+    if(c[i]>c[j]){
+      temp=c[i]
+      c[i]=c[j]
+      c[j]=temp
+    }
+  }
+}
+Range <- c[length(c)]-c[1]
+cat("range of given vector is:",Range)
+print(range(c))
