@@ -20,4 +20,4 @@ for(i in 2:(l-1)){
   }
 }
 
-print(c[i])
+print(c[pos])
