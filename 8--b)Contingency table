@@ -1,0 +1,19 @@
+#Contingency table
+m <- as.table(rbind(c(190,243,197),c(82,44,44),c(23,78,34),c(5,12,8)))
+dimnames(m)=list(Empcategory=c("Labour","clerks","Technicians","Executives"),BonuSchemes=c("Type1","Type2","Type3"))
+print(m)
+csum <- colSums(m)
+rsum <- rowSums(m)
+mytable <- (rbind(m,csum))
+mytable <- (cbind(mytable,rsum))
+print(mytable)
+result <- chisq.test(m)
+print(result)
+tablevalue <- qchisq(0.95,6)
+print(tablevalue)
+#print(test$expected,digits=5)
+if(result[1]>=tablevalue){
+  cat("Given cintingency table is not fit.")
+}else{
+  cat("given contingency table is fit.")
+}
