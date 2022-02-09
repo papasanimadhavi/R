@@ -1,0 +1,34 @@
+#poison distribution
+x <- c(0,1,2,3,4)
+f <- c(211,90,19,5,0)
+Sumf <- sum(f)
+n <- length(x)-1
+fx <- f*x
+Sumfx <-sum(fx)
+p <- Sumfx/Sumf
+pr <- dpois(0:4,lambda=p)
+fe <- pr*Sumf
+fee <-round(fe,digits=0)
+pr <- round(pr,digits=5)
+mydata <- data.frame(x,f,fx,pr,fe,fee)
+print(mydata,row.names=FALSE)
+View(mydata)
+subdata <- list(NA,Sumf,Sumfx,NA,NA,sum(fee))
+mydata <- rbind(mydata,subdata)
+print(mydata,row.names=FALSE)
+View(mydata)
+result <- chisq.test(f,p=pr,rescale.p=TRUE)
+print(result)
+tablevalue <- qchisq(0.95,df=n)
+print(tablevalue)
+if(result[1] >= tablevalue){
+  cat("Given poisson distribution is not fit.")
+}else{
+  cat("Given poisson distribution is fit.")
+}
+
+
+
+
+
+
