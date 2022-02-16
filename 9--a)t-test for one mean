@@ -1,0 +1,29 @@
+#one mean
+c <- scan()
+print("enter the mean:")
+mu<-scan()
+print("enter the level of significance:")
+alpha <- scan()
+condition <- readline()
+standarddeviation <- sd(c)
+print(standarddeviation)
+n <- length(c)
+result <- t.test(c,mu=mu)
+print(result)
+if(condition=='!='){
+print("Tablevalue for two-tailed test:")
+tablevalue <- qt(1-alpha/2,df=n-1)
+if(result[1]>=tablevalue){
+  print("we reject")
+}else{
+  print("we accept")
+}
+}else{
+  print("Tablevalue for one tailed test:")
+  tablevalue <-qt(1-alpha,df=n-1)
+  if(result[1]>tablevalue){
+    print("we reject")
+  }else{
+    print("we accept")
+  }
+}
