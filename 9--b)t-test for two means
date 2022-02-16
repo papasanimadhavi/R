@@ -1,0 +1,35 @@
+#Two means
+print("enter 1st data:")
+c1 <- scan()
+print("enter 2nd data:")
+c2 <- scan()
+print("enter level of significance:")
+alpha <- scan()
+condition <- readline()
+
+n1 <- length(c1)
+
+n2 <- length(c2)
+
+result <- t.test(c1,c2)
+print(result)
+
+if(condition=='!='){
+  print("Tablevalue for two-tailed test:")
+  tablevalue <- qt(1-alpha/2,df=n1+n2-2)
+  if(result[1]>=tablevalue){
+    print("we reject.")
+  }else{
+    print("we accept.")
+  }
+}else{
+  print("Tablevalue for One-tailed test:")
+  tablevalue <- qt(1-alpha,df=n1+n2-2)
+  if(result[1]>tablevalue){
+    print("we reject.")
+  }else{
+    print("we accept.")
+  }
+}
+
+
