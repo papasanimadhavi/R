@@ -1,0 +1,36 @@
+#Paired t-test
+print("enter first values:")
+x <- scan()
+print("enter second values:")
+y <- scan()
+print("enter level of significance:")
+alpha <- scan()
+condition <- readline()
+
+d <- x-y
+
+dbar <- mean(d)
+std <- sd(d)
+
+n <- length(d)
+
+tcal <- t.test(x,y,paired=TRUE)
+print(tcal)
+
+if(condition=="!="){
+  ttablevalue <- qt(1-alpha/2,df=n-1)
+  print(ttablevalue)
+  if(tcal[1] > ttablevalue){
+    cat("we reject h0.")
+  }else{
+    cat("we accept h0.")
+  }
+}else{
+  ttablevalue <- qt(1-alpha,df=n-1)
+  print(ttablevalue)
+  if(tcal[1] > ttablevalue){
+    cat("we reject h0.")
+  }else{
+    cat("we accept h0.")
+  }
+}
